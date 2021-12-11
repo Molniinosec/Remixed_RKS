@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <title>Create user</title>
 </head>
-<body>
+<body >
 <form action="#" th:action="@{/user-create}" th:object="${user}" method="post">
     <label for="LName">Last name</label>
     <input type="text" th:field="*{LName}" id="LName" placeholder="Last Name">
+    <br/>
     <label for="FName">First name</label>
     <input type="text" th:field="*{FName}" id="FName" placeholder="First Name">
+    <br/>
     <label for="Phone">Phone</label>
     <input type="text" th:field="*{Phone}" id="Phone" placeholder="Phone">
+    <br/>
     <label for="Password">Password</label>
     <input type="text" th:field="*{Password}" id="Password" placeholder="Password">
+    <br/>
     <label for="Email">Email</label>
     <input type="text" th:field="*{Email}" id="Email" placeholder="Email">
+    <br/>
     <input type="submit" value="Create User">
 </form>
 </body>

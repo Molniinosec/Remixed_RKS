@@ -14,18 +14,19 @@ public class File {
     private String FilePath;
     private String FileSize;
 
-    @ManyToOne (optional=false, cascade=CascadeType.ALL)
+    @ManyToOne(optional=false, cascade=CascadeType.ALL)
     @JoinColumn (name="users_id")
     private User user;
 
     public File() {
     }
 
-    public File(Integer fileID, String title, String filePath, String fileSize) {
+    public File(Integer fileID, String title, String filePath, String fileSize,User user) {
         this.FileId = fileID;
         this.Title = title;
         this.FilePath = filePath;
         this.FileSize = fileSize;
+        this.user = user;
     }
 
     public Integer getFileId() {
@@ -60,4 +61,11 @@ public class File {
         this.FileSize = fileSize;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

@@ -85,8 +85,8 @@ public class User {
     }
 
     public Collection<File> getUserFiles() {
-        return this.UserFiles;
-    }
+       return this.UserFiles;
+   }
 
     public void setUserFiles(Collection<File> userFiles) {
         this.UserFiles = userFiles;

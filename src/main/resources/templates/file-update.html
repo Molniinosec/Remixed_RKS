@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form  action="#" th:action="@{/file-update}" th:object="${file}" method="post" >
+    <label for="FileId">FileId</label>
+    <input readonly type="number" th:field="*{FileId}" id="FileId" placeholder="FileId">
+    <br/>
+    <label for="Title">Title</label>
+    <input type="text" th:field="*{Title}" id="Title" placeholder="Title">
+    <br/>
+    <label for="FilePath">FilePath</label>
+    <input type="text" th:field="*{FilePath}" id="FilePath" placeholder="FilePath">
+    <br/>
+    <label for="FileSize">FileSize</label>
+    <input type="text" th:field="*{FileSize}" id="FileSize" placeholder="FileSize">
+    <br/>
+    <label for="user">user id</label>
+    <input type="text" th:field="*{user}" id="user" placeholder="user id">
+    <br/>
+
+    <br/>
+    <input type="submit" value="Update User">
+</form>
+
+</body>
+</html>

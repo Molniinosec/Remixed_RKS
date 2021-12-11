@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title th:text="${Users}"/>
 </head>
-<body>
+<body >
 <div th:switch="${users}">
     <h2 th:case="null">No users found!</h2>
     <div th:case="*">
@@ -33,8 +33,35 @@
             </tr>
             </tbody>
         </table>
+        <br/>
+        <p><a href="/user-create">Create User</a></p>
+        <br/>
+        <h2>Files</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>File_Id</th>
+                <th>Title</th>
+                <th>FilePath</th>
+                <th>FileSize</th>
+                <th>users_id</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="file : ${files}">
+                <td th:text="${file.FileId}"></td>
+                <td th:text="${file.Title}"></td>
+                <td th:text="${file.FilePath}"></td>
+                <td th:text="${file.FileSize}"></td>
+                <td th:text="${file.user}"></td>
+                <td><a th:href="@{file-update/{id}(id=${file.FileId})}">Edit</a></td>
+                <td><a th:href="@{file-delete/{id}(id=${file.FileId})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <p><a href="/user-create">Create user</a></p>
+
+    <p><a href="/file-create">Create File</a></p>
 </div>
 </body>
 </html>

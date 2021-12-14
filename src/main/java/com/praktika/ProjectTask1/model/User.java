@@ -5,6 +5,7 @@ import jdk.jfr.DataAmount;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -19,21 +20,43 @@ public class User {
     private String Phone;
     private String Password;
     private String Email;
+    private boolean active;
 
     @OneToMany (mappedBy="user", fetch=FetchType.EAGER)
     private Collection<File> UserFiles;
 
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
+
     public User() {
     }
 
-    public User(Integer userID, String LName, String FName, String phone, String password, String email, Collection<File> files) {
-        this.UserId = userID;
+    public User(String LName, String FName, String phone, String password, String email, boolean active, Collection<File> userFiles) {
         this.LName = LName;
         this.FName = FName;
-        this.Phone = phone;
-        this.Password = password;
-        this.Email = email;
-        this.UserFiles = files;
+        Phone = phone;
+        Password = password;
+        Email = email;
+        this.active = active;
+        UserFiles = userFiles;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public Integer getUserId() {

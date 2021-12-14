@@ -7,6 +7,10 @@
 <body >
 <div th:switch="${users}">
     <h2 th:case="null">No users found!</h2>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+
     <div th:case="*">
         <h2>Users</h2>
         <table>
